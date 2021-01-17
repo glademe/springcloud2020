@@ -1,0 +1,16 @@
+server:
+  port: 800
+
+spring:
+  application:
+    name: consul-consumer-order
+  #consul注册中心地址
+  cloud:
+    consul:
+      host: 120.79.209.239 #服务器
+      port: 3344
+      discovery:
+        service-name: ${spring.application.name}
+        #不写这个部署在docker上会出现红叉，表示发送心跳协议
+        heartbeat:
+          enabled: true
